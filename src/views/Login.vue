@@ -27,7 +27,14 @@ export default {
           if(this.loginData[i].pass !== pass) continue;
           this.matched = true;
 
-          this.$emit('loggedIn', this.loginData.role);
+          switch(this.loginData[i].role){
+            case "Student":
+              this.$router.push("student");
+              break;
+            case "Teacher":
+              this.$router.push("teacher");
+              break;
+          }
 
           return;
         }
