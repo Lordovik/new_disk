@@ -32,6 +32,7 @@
                     name="login"
                     prepend-icon="person"
                     type="text"
+                    @keypress="checkEnter"
                   ></v-text-field>
 
                   <v-alert
@@ -119,8 +120,14 @@
           if(this.errors[error]) return true;
         }
         return false;
+      },
+
+      checkEnter(e){
+        if(e.keyCode === 13) checkFields();
       }
+
     }
+
   }
 </script>
 
